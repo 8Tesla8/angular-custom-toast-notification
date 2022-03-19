@@ -1,33 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ToastModel } from './toast.model';
+import { ToastService } from './toast.service';
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.scss']
 })
-export class ToastComponent {
-  public title = 'toast-title';
-  public message = 'toast-message';
+export class ToastComponent implements OnDestroy {
 
-  public position: ToastPosition = ToastPosition.TopRight;
-  public type: ToastType = ToastType.Info;
+  public visible: boolean = false;
 
+  public toastModel: ToastModel;
 
-  //buttons 
-  //- close
-  //- additional action
-}
+  private $subscriptions: Subscription;
 
-export enum ToastPosition{
-  TopRight = 'position-top-right',
-  TopLeft = 'position-top-left',
-  Center = 'position-center',
-}
+  constructor(private _toastService:ToastService) {
 
-//icon
-export enum ToastType{
-  Warning = 'warning',
-  Error = 'error',
-  Info = 'info',
-  None = 'none',
+    this.$subscriptions = this._toastService.$toastState.subscribe( (toastModel: ToastModel) => {
+      this.toastModel = toastModel;
+
+      this.visible = this.toastModel.visible;
+    });
+
+  }
+ 
+  public close(): void {
+    this.visible = false;
+  }
+
+  ngOnDestroy(): void {
+    this.$subscriptions.unsubscribe();
+  }
+
 }

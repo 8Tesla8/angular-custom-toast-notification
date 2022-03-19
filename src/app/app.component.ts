@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastService } from './toast/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-project';
+
+  constructor(private _toastService:ToastService) {    
+  }
+  
+  public showToast():void{
+    this._toastService.show(50);
+  }
 }

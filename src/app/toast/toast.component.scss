@@ -1,7 +1,6 @@
 .positon-top-right{
     top: 2%; 
-    // right: 8%;
-    left: 82%;
+    right: 2%;
 }
 
 .positon-top-left{
@@ -17,16 +16,18 @@
 
 .toast{
     background-color: grey;
-    width:100px;
-    height:40px;
+    width:200px;
+    // height:40px;
     position: absolute;
 
     .toast-grid{
         display: grid;
         grid-template-areas:
         'img title btn-close'
-        'img message btn-additional'
+        'img message message'
         ;
+        grid-template-columns: 30% 50% 20%;
+        grid-template-rows: 50% 50% ;
 
         .img{
             grid-area: img;

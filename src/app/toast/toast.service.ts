@@ -1,9 +1,18 @@
-export class ToastService{
+import { BehaviorSubject } from 'rxjs';
+import { ToastModel } from './toast.model';
 
-    public show(time:number){
+export class ToastService {
+  $toastState = new BehaviorSubject<ToastModel>(new ToastModel(false));
 
+  public show(seconds: number = 5) {
+    if (seconds <= 0) {
+      seconds = 5;
     }
 
-    //create event to show or hide toast message
-    
+    let toast = new ToastModel(true);
+
+    this.$toastState.next(toast);
+    setTimeout(() => this.$toastState.next(new ToastModel(false)), seconds * 1000);
+  }
+
 }

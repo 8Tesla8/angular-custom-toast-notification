@@ -1,11 +1,19 @@
-<div class="toast positon-top-right">
+<div *ngIf="visible" class="toast positon-top-right">
     <div class="toast-grid">
-        <div class="img">img</div>
-        <div class="title">{{title}}</div>
-        <div class="message">{{message}}</div>
 
-        <div class="btn-close">btn-close</div>
-        <div class="btn-additional">btn-additional</div>
+        <div *ngIf="toastModel.type" class="img">
+            <img *ngIf="toastModel.type == 'error'" src="assets/icons/error.svg" width="50">
+            <img *ngIf="toastModel.type == 'warning'" src="assets/icons/warning.svg" width="50">
+            <img *ngIf="toastModel.type == 'info'" src="assets/icons/info.svg" width="50" >
+        </div>
+
+        <div class="title">{{toastModel.title}}</div>
+        <div class="message">{{toastModel.message}}</div>
+
+        <div class="btn-close">
+            <button (click)="close()">X</button>
+        </div>
+        
     </div>
 
 </div>
