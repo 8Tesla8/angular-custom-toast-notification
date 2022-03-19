@@ -1,0 +1,57 @@
+.positon-top-right{
+    top: 2%; 
+    // right: 8%;
+    left: 82%;
+}
+
+.positon-top-left{
+    top: 2%; 
+    left: 2%;
+}
+
+.position-center{
+    top: 50%;
+    left: 50%;
+}
+
+
+.toast{
+    background-color: grey;
+    width:100px;
+    height:40px;
+    position: absolute;
+
+    .toast-grid{
+        display: grid;
+        grid-template-areas:
+        'img title btn-close'
+        'img message btn-additional'
+        ;
+
+        .img{
+            grid-area: img;
+            background-color: aqua;
+        }
+
+        .title{
+            grid-area: title;
+            background-color: firebrick;
+        }
+
+        .message{
+            grid-area: message;
+            background-color: forestgreen;
+        }
+
+        .btn-close{
+            grid-area: btn-close;
+            background-color: gold;
+        }
+
+        .btn-additional{
+            grid-area: btn-additional;
+            background-color: teal;
+        }
+    }
+}
+
