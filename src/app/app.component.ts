@@ -12,6 +12,6 @@ export class AppComponent {
   }
   
   public showToast():void{
-    this._toastService.show(50);
+    this._toastService.show('title', 'information for this event is very  large 2222 44444 77777 888888', 50);
   }
 }

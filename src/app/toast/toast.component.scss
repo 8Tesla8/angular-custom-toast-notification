@@ -1,9 +1,9 @@
-.positon-top-right{
+.position-top-right{
     top: 2%; 
     right: 2%;
 }
 
-.positon-top-left{
+.position-top-left{
     top: 2%; 
     left: 2%;
 }
@@ -16,8 +16,8 @@
 
 .toast{
     background-color: grey;
-    width:200px;
-    // height:40px;
+    width: 350px;
+    height: 60px;
     position: absolute;
 
     .toast-grid{
@@ -26,7 +26,7 @@
         'img title btn-close'
         'img message message'
         ;
-        grid-template-columns: 30% 50% 20%;
+        grid-template-columns: 20% 70% 10%;
         grid-template-rows: 50% 50% ;
 
         .img{
@@ -36,12 +36,21 @@
 
         .title{
             grid-area: title;
+            padding: 5px;
             background-color: firebrick;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .message{
             grid-area: message;
+            padding: 3px;
             background-color: forestgreen;
+            overflow: hidden;
+            font-size: small;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .btn-close{
@@ -49,9 +58,10 @@
             background-color: gold;
         }
 
-        .btn-additional{
-            grid-area: btn-additional;
-            background-color: teal;
+        .flexbox-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
