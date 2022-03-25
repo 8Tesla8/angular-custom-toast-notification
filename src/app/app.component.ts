@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastType, ToastPosition } from './toast/toast.model';
 import { ToastService } from './toast/toast.service';
 
 @Component({
@@ -8,10 +9,21 @@ import { ToastService } from './toast/toast.service';
 })
 export class AppComponent {
 
+  public title:string;
+  public message:string;
+
   constructor(private _toastService:ToastService) {    
   }
-  
-  public showToast():void{
-    this._toastService.show('title', 'information for this event is very  large 2222 44444 77777 888888', 50);
+
+  public showWarningToast():void{
+    this._toastService.show(this.title, this.message, 30, ToastType.Warning, ToastPosition.TopRight);
+  }
+
+  public showErrorToast():void{
+    this._toastService.show(this.title, this.message, 3, ToastType.Error, ToastPosition.TopLeft);
+  }
+
+  public showInfoToast():void{
+    this._toastService.show(this.title, this.message, 3, ToastType.Info, ToastPosition.Center);
   }
 }

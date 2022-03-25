@@ -1,7 +1,9 @@
 <app-toast></app-toast>
 
-<button (click)="showToast()">Show toast</button>
-<div class="full">
-full
-</div>
+Toast title: <input type="text" [(ngModel)]="title"> <br>
+Toast text: <input type="text" [(ngModel)]="message"> <br>
+
+<button (click)="showWarningToast()">Show Warning toast</button>
+<button (click)="showErrorToast()">Show Error toast</button>
+<button (click)="showInfoToast()">Show Info toast</button>
 
