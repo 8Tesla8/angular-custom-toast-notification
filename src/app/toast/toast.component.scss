@@ -17,27 +17,23 @@
 .toast{
     background-color: grey;
     width: 350px;
-    height: 60px;
     position: absolute;
 
     .toast-grid{
         display: grid;
         grid-template-areas:
         'img title btn-close'
-        'img message message'
-        ;
+        'img message message';
         grid-template-columns: 20% 70% 10%;
         grid-template-rows: 50% 50% ;
 
         .img{
             grid-area: img;
-            background-color: aqua;
         }
 
         .title{
             grid-area: title;
             padding: 5px;
-            background-color: firebrick;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
@@ -45,17 +41,13 @@
         .message{
             grid-area: message;
             padding: 3px;
-            background-color: forestgreen;
-            overflow: hidden;
             font-size: small;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            white-space: pre-wrap;
+            word-break: break-all; 
         }
 
         .btn-close{
             grid-area: btn-close;
-            background-color: gold;
         }
 
         .flexbox-center{
