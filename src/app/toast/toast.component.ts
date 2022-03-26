@@ -20,12 +20,7 @@ export class ToastComponent implements OnDestroy {
     });
   }
  
-  public close(): void {
-    this.toastModel.visible = false;
-  }
+  public close(): void { this.toastModel.visible = false; }
 
-  ngOnDestroy(): void {
-    this.$subscriptions.unsubscribe();
-  }
-
+  ngOnDestroy(): void { this.$subscriptions.unsubscribe(); }
 }

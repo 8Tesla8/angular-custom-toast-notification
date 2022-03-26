@@ -16,14 +16,14 @@ export class AppComponent {
   }
 
   public showWarningToast():void{
-    this._toastService.show(this.title, this.message, 30, ToastType.Warning, ToastPosition.TopRight);
+    this._toastService.show(this.title, this.message, 5, ToastType.Warning, ToastPosition.TopRight);
   }
 
   public showErrorToast():void{
-    this._toastService.show(this.title, this.message, 3, ToastType.Error, ToastPosition.TopLeft);
+    this._toastService.show(this.title, this.message, 5, ToastType.Error, ToastPosition.TopLeft);
   }
 
   public showInfoToast():void{
-    this._toastService.show(this.title, this.message, 3, ToastType.Info, ToastPosition.Center);
+    this._toastService.show(this.title, this.message, 5, ToastType.Info, ToastPosition.Center);
   }
 }
