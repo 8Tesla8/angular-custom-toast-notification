@@ -10,24 +10,18 @@ import { ToastService } from './toast.service';
 })
 export class ToastComponent implements OnDestroy {
 
-  public visible: boolean = false;
-
   public toastModel: ToastModel;
 
   private $subscriptions: Subscription;
 
   constructor(private _toastService:ToastService) {
-
     this.$subscriptions = this._toastService.$toastState.subscribe( (toastModel: ToastModel) => {
       this.toastModel = toastModel;
-
-      this.visible = this.toastModel.visible;
     });
-
   }
  
   public close(): void {
-    this.visible = false;
+    this.toastModel.visible = false;
   }
 
   ngOnDestroy(): void {
